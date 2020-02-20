@@ -40,7 +40,7 @@
 						<li><a th:href="@{/employee/showList}">従業員リスト</a></li>
 					</ul>
 					<p class="navbar-text navbar-right">
-					    <span th:text="${application.name}">山田太郎</span>さんこんにちは！
+					    <span th:text="${session.name}">山田太郎</span>さんこんにちは！
 						&nbsp;&nbsp;&nbsp;
 						<a href="../administrator/login.html" class="navbar-link" th:href="@{/logout}">ログアウト</a>
 					</p>
@@ -52,7 +52,7 @@
 
 		<!-- パンくずリスト -->
 		<ol class="breadcrumb">
-			<li class="active"><a  th:href="@{/employee/showList}">従業員リスト</a></li>
+			<li class="active"><a th:href="@{/employee/showList}">従業員リスト</a></li>
 			<li class="active">従業員詳細</li>
 		</ol>
 		

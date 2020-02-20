@@ -113,7 +113,8 @@ public class AdministratorController {
 			model.addAttribute("errorMessage", "メールアドレスまたはパスワードが不正です。");
 			return toLogin();
 		}
-		application.setAttribute("name",form.getMailAddress());
+		application.setAttribute("mailAddress",form.getMailAddress());
+		session.setAttribute("name", administrator.getName());
 		return "forward:/employee/showList";
 	}
 	
