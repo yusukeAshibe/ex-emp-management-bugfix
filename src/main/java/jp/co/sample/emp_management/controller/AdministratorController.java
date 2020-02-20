@@ -1,5 +1,6 @@
 package jp.co.sample.emp_management.controller;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.BeanUtils;
@@ -31,6 +32,9 @@ public class AdministratorController {
 	
 	@Autowired
 	private HttpSession session;
+	
+	@Autowired
+	private ServletContext application;
 
 	/**
 	 * 使用するフォームオブジェクトをリクエストスコープに格納する.
@@ -77,7 +81,7 @@ public class AdministratorController {
 		// フォームからドメインにプロパティ値をコピー
 		BeanUtils.copyProperties(form, administrator);
 		administratorService.insert(administrator);
-		return "redirect:/login";
+		return "redirect:/";
 	}
 
 	/////////////////////////////////////////////////////
@@ -109,6 +113,7 @@ public class AdministratorController {
 			model.addAttribute("errorMessage", "メールアドレスまたはパスワードが不正です。");
 			return toLogin();
 		}
+		application.setAttribute("name",form.getMailAddress());
 		return "forward:/employee/showList";
 	}
 	
