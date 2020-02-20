@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.sample.emp_management.domain.Employee;
+import jp.co.sample.emp_management.form.SearchNameForm;
 import jp.co.sample.emp_management.form.UpdateEmployeeForm;
 import jp.co.sample.emp_management.service.EmployeeService;
 
@@ -35,6 +36,10 @@ public class EmployeeController {
 	@ModelAttribute
 	public UpdateEmployeeForm setUpForm() {
 		return new UpdateEmployeeForm();
+	}
+	@ModelAttribute
+	public SearchNameForm SearchNameSetUpForm() {
+		return new SearchNameForm();
 	}
 
 	/////////////////////////////////////////////////////
@@ -92,4 +97,19 @@ public class EmployeeController {
 		employeeService.update(employee);
 		return "redirect:/employee/showList";
 	}
+	
+	@RequestMapping("/searchShowList")
+	public String SearchshowList(Model model,SearchNameForm searchNameForm) {
+		List<Employee> employeeList = employeeService.searchEmployee(searchNameForm.getName());
+		if(employeeList.size()==0) {
+			model.addAttribute("message","１件もありませんでした");
+		}
+		model.addAttribute("employeeList", employeeList);
+		
+		return "employee/list";
+	}
+	
+	
+	
+	
 }

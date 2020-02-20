@@ -49,7 +49,7 @@
 									</div>
 								</div>
 							</div>
-							<!-- メールアドレス -->
+							<!--eメールアドレス -->
 							<div class="form-group">
 								<div class="row">
 									<div class="col-sm-12">
@@ -76,6 +76,21 @@
 										</label>
 										<input type="password" name="password" id="password" class="form-control" placeholder="password"
 											 th:field="*{password}" th:errorclass="error-input" value="xxxxxxxx">
+									</div>
+								</div>
+							</div>
+							<!--１確認用パスワード -->
+							<div class="form-group">
+								<div class="row">
+									<div class="col-sm-12">
+										<label for="passwaord2">
+											確認用パスワード:
+										</label>
+										<label th:if="${#fields.hasErrors('password2')}" th:errors="*{password2}" class="error-messages">
+											確認用パスワードを入力してください
+										</label>
+										<input type="password" name="password2" id="password2" class="form-control" placeholder="確認用password"
+											 th:field="*{password2}" th:errorclass="error-input" value="xxxxxxxx">
 									</div>
 								</div>
 							</div>
