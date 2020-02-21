@@ -76,7 +76,7 @@ public class AdministratorController {
 		
 		if(!(form.getPassword().equals(form.getConfirmationpassword()))) {
 			result.rejectValue("confirmationpassword"," ", "パスワードと確認用パスワードが一致しません");
-			return toInsert(model);
+			
 		}
 		
 		if (result.hasErrors()) {
@@ -87,7 +87,7 @@ public class AdministratorController {
 		// フォームからドメインにプロパティ値をコピー
 		BeanUtils.copyProperties(form, administrator);
 		administratorService.insert(administrator);
-		return "redirect:/";
+		return "redirect:/";    //redirect:/tologinから変更
 	}
 
 	/////////////////////////////////////////////////////
