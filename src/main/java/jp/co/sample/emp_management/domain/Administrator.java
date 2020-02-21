@@ -15,7 +15,6 @@ public class Administrator {
 	private String mailAddress;
 	/** パスワード */
 	private String password;
-	
 	/**
 	 *確認用パスワード 
 	 */
