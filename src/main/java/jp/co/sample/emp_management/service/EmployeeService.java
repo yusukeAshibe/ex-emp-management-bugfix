@@ -54,6 +54,11 @@ public class EmployeeService {
 	}
 	
 	
+	/**
+	 * 従業員の曖昧検索をします.
+	 * @param name 従業員の名前の一部.
+	 * @return  曖昧検索された従業員情報の一覧
+	 */
 	public List<Employee> searchEmployee(String name) {
 		List<Employee> employeeList = employeeRepository.findByEmployee(name);
 		return employeeList;

@@ -98,6 +98,12 @@ public class EmployeeController {
 		return "redirect:/employee/showList";
 	}
 	
+	/**
+	 * 従業員曖昧検索
+	 * @param model　model
+	 * @param searchNameForm 入力された文字列
+	 * @return
+	 */
 	@RequestMapping("/searchShowList")
 	public String SearchshowList(Model model,SearchNameForm searchNameForm) {
 		List<Employee> employeeList = employeeService.searchEmployee(searchNameForm.getName());
