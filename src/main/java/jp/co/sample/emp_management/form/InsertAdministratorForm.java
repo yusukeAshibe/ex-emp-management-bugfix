@@ -8,6 +8,10 @@ import javax.validation.constraints.NotBlank;
  * @author igamasayuki
  * 
  */
+/**
+ * @author ashibe
+ *
+ */
 public class InsertAdministratorForm {
 	/** 名前 */
 	@NotBlank(message = "名前は必須です")
@@ -19,7 +23,11 @@ public class InsertAdministratorForm {
 	@NotBlank(message = "パスワードは必須です")
 	private String password;
 
-	
+	/**
+	 * 確認用パスワード
+	 */
+	@NotBlank(message = "パスワードは必須です")
+	private String confirmationpassword;
 
 	public String getName() {
 		return name;
@@ -45,12 +53,18 @@ public class InsertAdministratorForm {
 		this.password = password;
 	}
 
+	public String getConfirmationpassword() {
+		return confirmationpassword;
+	}
+
+	public void setConfirmationpassword(String confirmationpassword) {
+		this.confirmationpassword = confirmationpassword;
+	}
+
 	@Override
 	public String toString() {
 		return "InsertAdministratorForm [name=" + name + ", mailAddress=" + mailAddress + ", password=" + password
-				+ "]";
+				+ ", confirmationpassword=" + confirmationpassword + "]";
 	}
 
-
-	
 }

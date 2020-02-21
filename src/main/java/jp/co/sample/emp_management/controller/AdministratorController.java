@@ -73,6 +73,12 @@ public class AdministratorController {
 	 */
 	@RequestMapping("/insert")
 	public String insert(@Validated InsertAdministratorForm form, BindingResult result, Model model) {
+		
+		if(!(form.getPassword().equals(form.getConfirmationpassword()))) {
+			result.rejectValue("confirmationpassword"," ", "パスワードと確認用パスワードが一致しません");
+			return toInsert(model);
+		}
+		
 		if (result.hasErrors()) {
 			return toInsert(model);
 		}

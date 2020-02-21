@@ -85,9 +85,13 @@
 									<div class="col-sm-12">
 									<span id="errorMessage" style="color: red;"></span>
 										<label for="confirmationpasswaord">
+										確認用パスワードを入力してください
+										</label>
+										<label th:if="${#fields.hasErrors('confirmationpassword')}" th:errors="*{confirmationpassword}" class="error-messages">
 											確認用パスワード:
 										</label>
-										<input type="password" name="confirmationpassword" id="confirmationpassword" class="form-control" placeholder="confirmationpassword">
+										<input type="password" name="confirmationpassword" id="confirmationpassword" class="form-control" placeholder="confirmationpassword"
+										th:field="*{confirmationpassword}" th:errorclass="error-input">
 									</div>
 								</div>
 							</div>
